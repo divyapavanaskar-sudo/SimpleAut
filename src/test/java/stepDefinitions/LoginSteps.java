@@ -23,6 +23,7 @@ public void loginwith()
     public void click_on_fuel()
 {
     loginPage.fuelClick();
+    System.out.println("Code Changes");
 
 }
 
