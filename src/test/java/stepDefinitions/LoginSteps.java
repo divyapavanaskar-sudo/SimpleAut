@@ -24,6 +24,7 @@ public void loginwith()
 {
     loginPage.fuelClick();
     System.out.println("Code Changes");
+    System.out.println("Feature branch changes");
 
 }
 
