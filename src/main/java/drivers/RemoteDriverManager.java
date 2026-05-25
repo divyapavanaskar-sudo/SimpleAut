@@ -16,12 +16,23 @@ public class RemoteDriverManager {
         try {
             switch (browser.toLowerCase()) {
                 case "chrome":
-                    ChromeOptions chromeOptionsptions = new ChromeOptions();
-                    chromeOptionsptions.addArguments("--start-maximized");
-                    return new RemoteWebDriver(new URL(gridUrl),chromeOptionsptions);
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--start-maximized");
+                    chromeOptions.addArguments("--headless=new");
+                    chromeOptions.addArguments("--no-sandbox");
+                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                    // ✅ Capabilities (IMPORTANT)
+                    chromeOptions.setCapability("browserName", "chrome");
+                    chromeOptions.setCapability("acceptInsecureCerts", true);
+                    chromeOptions.setCapability("platformName", "Windows 11");
+                    chromeOptions.setCapability("browserVersion", "latest");
+
+                    return new RemoteWebDriver(new URL(gridUrl),chromeOptions);
+
                 case "firefox":
                     FirefoxOptions firefoxOptionstions= new FirefoxOptions();
                     return new RemoteWebDriver(new URL(gridUrl), firefoxOptionstions);
+
                 default:
                     throw  new RuntimeException("Browser not supported" +browser);
             }
