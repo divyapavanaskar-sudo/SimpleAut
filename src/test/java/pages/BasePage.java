@@ -9,12 +9,10 @@ import java.time.Duration;
 
 public class BasePage {
     protected WebDriver driver;
-    protected WebDriverWait wait;
-    protected ActionUtils actionUtils;
+     protected ActionUtils actionUtils;
     public BasePage()
     {
         this.driver= DriverFactory.getDriver();
-        this.wait=new WebDriverWait(driver, Duration.ofSeconds(20));
         this.actionUtils=new ActionUtils(driver);
     }
 }

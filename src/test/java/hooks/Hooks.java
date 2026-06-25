@@ -11,8 +11,6 @@ import utils.ScreenshotUtils;
 import java.io.IOException;
 
 public class Hooks {
-
-
     @Before
     public void setUp(Scenario scenario)
     {
